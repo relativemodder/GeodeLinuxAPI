@@ -8,20 +8,6 @@ using namespace geode::prelude;
 
 
 class $modify(LinuxAPIMenuLayer, MenuLayer) {
-    void onRobTop(CCObject*) {
-        LinuxAPI::getInstance()->open("https://google.com")
-        .listen([] (geode::Result<bool>* resultPtr) {
-
-            if (!resultPtr->isOk()) {
-                FLAlertLayer::create(
-                    "Error",
-                    resultPtr->err().value(),
-                    "OK"
-                )->show();
-            }
-        });
-    }
-
     void checkTask() {
 		geode::log::info("Checking for server running");
 
