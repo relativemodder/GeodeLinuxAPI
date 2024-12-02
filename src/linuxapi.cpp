@@ -1,6 +1,6 @@
 #include "wineutils.hpp"
 #include <filesystem>
-#include <linuxapi.hpp>
+#include "linuxapi.hpp"
 
 
 LinuxAPI* LinuxAPI::getInstance() {

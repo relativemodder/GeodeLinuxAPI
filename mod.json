@@ -14,5 +14,10 @@
 			"src/python-side/linux-api-server.desktop"
 		]
 	},
-	"early-load": true
+	"early-load": true,
+	"api": {
+		"include": [
+			"include/*.hpp"
+		]
+	}
 }

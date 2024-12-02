@@ -3,11 +3,11 @@
 #include <Geode/utils/web.hpp>
 #include <filesystem>
 #include <string>
-#include <wineutils.hpp>
-#include <filepickerapi.hpp>
-#include <filemanagerapi.hpp>
-#include <notificationsapi.hpp>
-#include <xdgapi.hpp>
+#include "wineutils.hpp"
+#include "filepickerapi.hpp"
+#include "filemanagerapi.hpp"
+#include "notificationsapi.hpp"
+#include "xdgapi.hpp"
 
 
 class LinuxAPI : public FilePickerAPI, 

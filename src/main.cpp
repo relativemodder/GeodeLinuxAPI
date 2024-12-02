@@ -1,7 +1,6 @@
-#include "Geode/binding/FLAlertLayer.hpp"
 #include <Geode/Geode.hpp>
-#include <wineutils.hpp>
-#include <linuxapi.hpp>
+#include "wineutils.hpp"
+#include "linuxapi.hpp"
 #include <Geode/modify/MenuLayer.hpp>
 
 using namespace geode::prelude;
