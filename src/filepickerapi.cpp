@@ -80,11 +80,14 @@ geode::Task<geode::Result<std::vector<std::string>>> FilePickerAPI::openFiles(
                             auto finalFiles = std::vector<std::string>();
 
                             for (auto rawFile : files) {
-                                finalFiles.push_back(
-                                    WineUtils::getInstance()->unixPathToWindows(
-                                        linuxAPI->fixSpaces(rawFile)
-                                    )
+                                auto winPath = WineUtils::getInstance()->unixPathToWindows(
+                                    linuxAPI->fixSpaces(rawFile)
                                 );
+                                finalFiles.push_back(
+                                    winPath
+                                );
+
+                                geode::log::info("Raw {} path converted to {}", rawFile, winPath);
                             }
                             
                             resolve(

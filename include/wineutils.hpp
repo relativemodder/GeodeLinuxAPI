@@ -1,11 +1,12 @@
 #pragma once
+#include "export_macros.hpp"
 #include <Windows.h>
 #include <string>
 #include <codecvt>
 #include <locale>
 
 
-class WineUtils {
+class LINUXAPI_DLL WineUtils {
 public:
     static WineUtils* getInstance();
 

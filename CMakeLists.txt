@@ -20,4 +20,8 @@ add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
+if (PROJECT_IS_TOP_LEVEL)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE RELATIVE_LINUXAPI_EXPORTING)
+endif()
+
 setup_geode_mod(${PROJECT_NAME})

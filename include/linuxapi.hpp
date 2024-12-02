@@ -8,9 +8,10 @@
 #include "filemanagerapi.hpp"
 #include "notificationsapi.hpp"
 #include "xdgapi.hpp"
+#include "export_macros.hpp"
 
 
-class LinuxAPI : public FilePickerAPI, 
+class LINUXAPI_DLL LinuxAPI : public FilePickerAPI, 
     public FileManagerAPI, 
     public NotificationsAPI,
     public XDGAPI {
