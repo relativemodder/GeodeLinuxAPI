@@ -1,0 +1,17 @@
+{
+	"geode": "4.0.1",
+	"gd": {
+		"win": "2.2074"
+	},
+	"id": "relative.linuxapi",
+	"name": "LinuxAPI",
+	"version": "v0.0.1",
+	"developer": "Relative",
+	"description": "Toolset providing ability to interact with Linux Desktop",
+	"resources": {
+		"files": [
+			"src/python-side/linux-api-server.py",
+			"src/python-side/linux-api-server.desktop"
+		]
+	}
+}

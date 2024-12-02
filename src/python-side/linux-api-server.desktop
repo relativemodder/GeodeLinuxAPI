@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=python3 <home>/linux-api-server.py
+Icon=
+Name=Picker Server
+Path=
+Terminal=False
+Type=Application
