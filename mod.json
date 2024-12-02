@@ -13,5 +13,6 @@
 			"src/python-side/linux-api-server.py",
 			"src/python-side/linux-api-server.desktop"
 		]
-	}
+	},
+	"early-load": true
 }
