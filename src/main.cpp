@@ -2,6 +2,7 @@
 #include "wineutils.hpp"
 #include "linuxapi.hpp"
 #include <Geode/modify/MenuLayer.hpp>
+#include <filesystem>
 
 using namespace geode::prelude;
 
@@ -15,6 +16,23 @@ class $modify(LinuxAPIMenuLayer, MenuLayer) {
 			bool res = *result;
 
 			if (res) return;
+
+			if (std::filesystem::exists(WineUtils::getInstance()->unixPathToWindows("/app"))) {
+				log::info("This bastard is using fucking flatpak");
+				geode::createQuickPopup(
+					"Linux API", 
+					fmt::format(
+						"{} {} {} {}", 
+						"<cl>Flatpak</c> detected. Consider allowing <cr>flatpak client</c>",
+						"(Steam or whatever you use) to access your <cy>home directory.</c>",
+						"Then, <co>restart</c> the flatpak client to apply changes. \n\n",
+						"(You can do it by using <cg>Flatseal</c> btw)"
+					), 
+					"OK", nullptr, 
+					nullptr
+				);
+				return;
+			}
 
 			geode::createQuickPopup(
 				"Linux API", "Looks like your Python Side <cr>is not running.</c> You might relogin into your desktop environment or start it manually.", 
@@ -40,10 +58,6 @@ class $modify(LinuxAPIMenuLayer, MenuLayer) {
 
 $execute {
     if (!WineUtils::getInstance()->isLinux()) {
-        Notification::create(
-            "Linux API: your platform is not supported", 
-            NotificationIcon::Error
-        )->show();
 		return;
     }
 

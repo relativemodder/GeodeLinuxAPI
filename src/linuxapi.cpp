@@ -68,7 +68,9 @@ void LinuxAPI::setupAutostartFile() {
 
 
 geode::Result<int> LinuxAPI::getServerPort() {
-    auto tmp_port_path = WineUtils::getInstance()->unixPathToWindows("/tmp/linux-api-server-port");
+    auto tmp_port_path = WineUtils::getInstance()->unixPathToWindows(
+        WineUtils::getInstance()->getUnixHome() + "/.local/share/linux-api-server-port"
+    );
 
     if (!std::filesystem::exists(tmp_port_path)) {
         return geode::Err("No server port file found");
@@ -101,7 +103,7 @@ geode::Task<bool> LinuxAPI::isServerAlive() {
         (auto resolve, auto progress, auto cancelled) {
             auto port = self->getServerPort();
 
-            if (port.ok() == false) {
+            if (port.isErr()) {
                 resolve(false);
                 return;
             }

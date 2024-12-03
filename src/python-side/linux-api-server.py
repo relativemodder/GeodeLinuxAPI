@@ -252,7 +252,7 @@ def already_running(port: int) -> bool:
 
 
 def generate_server_port() -> int:
-    port_path = '/tmp/linux-api-server-port'
+    port_path = os.path.expanduser('~') + '/.local/share/linux-api-server-port'
 
     if os.path.exists(port_path):
         with open(port_path) as fp:
