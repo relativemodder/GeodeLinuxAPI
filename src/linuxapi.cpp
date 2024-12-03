@@ -68,8 +68,10 @@ void LinuxAPI::setupAutostartFile() {
 
 
 geode::Result<int> LinuxAPI::getServerPort() {
-    auto tmp_port_path = WineUtils::getInstance()->unixPathToWindows(
-        WineUtils::getInstance()->getUnixHome() + "/.local/share/linux-api-server-port"
+	auto wineUtils = WineUtils::getInstance();
+
+    auto tmp_port_path = wineUtils->unixPathToWindows(
+        wineUtils->getUnixHome() + "/.local/share/linux-api-server-port"
     );
 
     if (!std::filesystem::exists(tmp_port_path)) {

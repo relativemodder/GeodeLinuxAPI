@@ -17,7 +17,9 @@ class $modify(LinuxAPIMenuLayer, MenuLayer) {
 
 			if (res) return;
 
-			if (std::filesystem::exists(WineUtils::getInstance()->unixPathToWindows("/app"))) {
+			auto wineUtils = WineUtils::getInstance();
+
+			if (std::filesystem::exists(wineUtils->unixPathToWindows("/app"))) {
 				log::info("This bastard is using fucking flatpak");
 				geode::createQuickPopup(
 					"Linux API", 
@@ -61,7 +63,6 @@ $execute {
 		return;
     }
 
-    
     auto linuxAPI = LinuxAPI::getInstance();
 
     linuxAPI->setupPythonScript();
