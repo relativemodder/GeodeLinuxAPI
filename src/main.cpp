@@ -22,10 +22,10 @@ class $modify(LinuxAPIMenuLayer, MenuLayer) {
 				geode::createQuickPopup(
 					"Linux API", 
 					fmt::format(
-						"{} {} {} {}", 
+						"{} {} {}\n\n{}", 
 						"<cl>Flatpak</c> detected. Consider allowing <cr>flatpak client</c>",
 						"(Steam or whatever you use) to access your <cy>home directory.</c>",
-						"Then, <co>restart</c> the flatpak client to apply changes. \n\n",
+						"Then, <co>restart</c> the flatpak client to apply changes.",
 						"(You can do it by using <cg>Flatseal</c> btw)"
 					), 
 					"OK", nullptr, 
